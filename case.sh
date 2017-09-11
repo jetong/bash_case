@@ -9,8 +9,7 @@ Menu Options
   2)  Display username.
   3)  Display date and calendar.
   4)  Display script name and its uptime in seconds.
-  0)  Quit
-  "
+  0)  Quit"
   return
 }
 
@@ -18,10 +17,12 @@ Menu Options
 
 display_menu;
 
+echo
 read -p "Enter selection [0-4] > "  # -p displays prompt for input
 while [[ $REPLY -ne 0 ]]; do
   case $REPLY in
-    1)  display_menu
+    1)  echo
+        display_menu
         ;;
     2)  echo "Username: $USER"
         ;;
@@ -34,9 +35,7 @@ while [[ $REPLY -ne 0 ]]; do
     *)  echo "Invalid option, please try again."
         ;;
   esac
-    if [[ $REPLY != 1 ]]; then  # print newline after each case, except for 1)
-      echo  
-    fi
+    echo
     read -p "Enter another selection [0-4] > "
 done
 
